@@ -6,7 +6,7 @@ Calculating the power by measure the time elapsed between rounds from an electro
 Transmitter
 -------
 
-The [transmitter](https://github.com/simonstamm/powermeter/tree/master/power_transmitter) (C/C++ on a JeeNodechecks) the metal disc / turning wheel (in German: Ferrarisscheibe) from a power meter with an reflective optical sensor with transistor output (CNY70) and transmits data to the receiver.
+The [transmitter](https://github.com/simonstamm/powermeter/tree/master/power_transmitter) (C/C++ on a JeeNode) checks the metal disc / turning wheel (in German: Ferrarisscheibe) from a power meter with an reflective optical sensor with transistor output (CNY70) and transmits data to the receiver.
 
 Receiver
 -------
