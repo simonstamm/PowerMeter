@@ -41,8 +41,6 @@ const int TRANSMIT_RATE = 5000;
 
 #include <RF12.h>
 
-//#include "hausmessung.h"
-
 /**
  * JeeNode Settings
  */
