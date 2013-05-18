@@ -59,11 +59,11 @@ const int baudRate = 9600;
  */
 
 // Red part of the turning wheel
-#define THRESHOLD_RED_MARKER 400
+#define THRESHOLD_RED_MARKER 160
 // Metal part of the turning wheel
-#define THRESHOLD_NORMAL 380
+#define THRESHOLD_NORMAL 161
 // Door from electric meter is open (disable detecting)
-#define THRESHOLD_DISABLE 700
+#define THRESHOLD_DISABLE 250
 // Discard power values over given threshold (e.g. only accept values below 15 kW)
 #define THRESHOLD_DISCARD_WATT 15000
 
@@ -167,8 +167,8 @@ void loop()
 		Serial.println();
 	}
 
-	// Red marker must be visible
-	if (read_val >= THRESHOLD_RED_MARKER && in_pulse == 0) {
+	// Red marker must be visible and door must be closed
+	if (read_val <= THRESHOLD_RED_MARKER && read_val <= THRESHOLD_DISABLE && in_pulse == 0) {
 		time = millis();
 		timediff = time - last_pulse;
 
@@ -224,7 +224,7 @@ void loop()
 	}
 
 	// Red part of the turning wheel is gone
-	if (read_val < THRESHOLD_NORMAL) {
+	if (read_val >= THRESHOLD_NORMAL) {
 		if (in_pulse) {
 			if (SERIAL_DEBUG) {
 				Serial.print("[+] Red marker is gone, metal disc returned at ");
